@@ -1,4 +1,4 @@
-"""startheme URL Configuration
+"""accounts URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -13,13 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from startheme import views
+from django.urls import path
+from django.contrib.auth import views as auth_views
+from . import views
+app_name = 'accounts'
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.HomePage.as_view(), name='home'),
-    path('accounts/', include('accounts.urls', namespace='accounts')),
-    path('accounts/', include('django.urls')),
+    path('login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('signup/', views.SignUp.as_view(), name='signup')
 ]

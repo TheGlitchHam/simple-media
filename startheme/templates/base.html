@@ -25,13 +25,13 @@
             <ul class="nav navbar-nav">
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Post<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'posts:create' %}">Post<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Groups</a>
+                    <a class="nav-link" href="{% url 'groups:all' %}">Groups</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Create Group</a>
+                    <a class="nav-link" href="{% url 'groups:create' %}">Create Group</a>
                 </li>
             </ul>
             <div>
@@ -42,7 +42,7 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Groups</a>
+                        <a class="nav-link" href="{% url 'groups:all' %}">Groups</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
@@ -63,8 +63,12 @@
         {% endblock  %}
     </div>
 
+    <canvas id="canvas"></canvas>
 
     <!-- Optional JavaScript -->
+
+    <script type="text/javascript" src="{% static 'startheme/js/master.js' %}"></script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

@@ -4,3 +4,15 @@ body {
     background-color: black;
     color: white;
 }
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.list-group-item-dark {
+    background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+a {
+    color: seashell;
+}
